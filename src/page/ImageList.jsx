@@ -25,7 +25,7 @@ const ImageList = () => {
 
   useEffect(() => {
     searchImages();
-  }, [searchKey, pageNumber, searchImages]);
+  }, [searchKey, pageNumber, images]);
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
