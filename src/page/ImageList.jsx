@@ -15,15 +15,14 @@ const ImageList = () => {
     setSearchKey(valueRef.current.value);
   };
 
-  const searchImages = async () => {
-    const accessKey = "oT_fk92Tz05ElgEfC9dYpEYyL0hUggVTg0XPKcIJZDM";
-    const url = `https://api.unsplash.com/search/photos?page=${pageNumber}&query=${searchKey}&client_id=${accessKey}&client_secret`;
-    const response = await fetch(url);
-    const data = await response.json();
-    setImages(data.results);
-  };
-
   useEffect(() => {
+    const searchImages = async () => {
+      const accessKey = "oT_fk92Tz05ElgEfC9dYpEYyL0hUggVTg0XPKcIJZDM";
+      const url = `https://api.unsplash.com/search/photos?page=${pageNumber}&query=${searchKey}&client_id=${accessKey}&client_secret`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setImages(data.results);
+    };
     searchImages();
   }, [searchKey, pageNumber, images]);
 
